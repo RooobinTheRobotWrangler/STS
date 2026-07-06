@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Story to Stage — Professional Speaking Training</title>
+<meta name="description" content="Unlock your trademark talk with the Story to Stage professional speaking training program. Build authority, audience and income from the stage." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============ FONTS ============ */
+@font-face{
+  font-family:"Base Bloom";
+  src:url("fonts/BASE_BLOOM.otf") format("opentype");
+  font-weight:normal; font-style:normal; font-display:swap;
+}
+
+/* ============ TOKENS ============ */
+:root{
+  --ink:#0a0c0c;
+  --panel:#0f1413;
+  --panel-2:#141a19;
+  --teal:#15a29c;
+  --teal-bright:#22d3c8;
+  --teal-deep:#0b5f5b;
+  --paper:#f5f5f2;
+  --paper-2:#ebece8;
+  --muted:#9aa3a1;
+  --cta:#ec2a7a;
+  --cta-hover:#ff3f8d;
+  --line:rgba(255,255,255,.10);
+  --maxw:1240px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+/* ============ RESET ============ */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Inter",system-ui,sans-serif;
+  background:var(--ink); color:var(--paper);
+  line-height:1.6; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* ============ TYPE ============ */
+.display{font-family:"Anton",sans-serif;font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.01em}
+.wordmark{font-family:"Base Bloom",sans-serif;letter-spacing:.06em}
+
+h1.display{font-size:clamp(2.6rem,7vw,6.2rem)}
+h2.display{font-size:clamp(2rem,4.6vw,3.9rem)}
+h3.display{font-size:clamp(1.5rem,2.4vw,2.2rem)}
+
+/* Ensuring all text teal is exactly #15a29c */
+.eyebrow{
+  font-family:"Inter";font-weight:600;font-size:.78rem;
+  letter-spacing:.28em;text-transform:uppercase;color:#15a29c;
+}
+.lead{font-size:clamp(1.02rem,1.5vw,1.22rem);color:#d8dbd9}
+.teal{color:#15a29c}
+.pink{color:var(--cta)}
+
+/* Neon Glow for Teal text on dark backgrounds */
+.hero .teal, .hero .eyebrow,
+.nav .brand .dot,
+.big-statement .teal,
+.deliver .teal, .deliver .sub,
+.philo .stage-mark,
+.authband .teal,
+.three .idx,
+.bio .eyebrow, .bio .creds li b,
+.finale .teal,
+.foot .fbrand .dot {
+  text-shadow: 0 0 8px rgba(21, 162, 156, 0.5), 0 0 16px rgba(21, 162, 156, 0.3);
+}
+
+/* ============ LAYOUT ============ */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+section{position:relative}
+.pad{padding:clamp(72px,11vh,140px) 0}
+.center{text-align:center}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;
+  font-family:"Inter";font-weight:700;font-size:.92rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:1.05em 2.2em;border-radius:999px;
+  background:var(--cta);color:#fff;
+  position:relative;overflow:hidden;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+  box-shadow:0 10px 30px -10px rgba(236,42,122,.6);
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px -12px rgba(236,42,122,.75)}
+.btn:active{transform:translateY(-1px)}
+.btn .arw{transition:transform .35s var(--ease)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn-ghost{
+  background:transparent;color:var(--paper);
+  border:1.5px solid rgba(255,255,255,.35);box-shadow:none;
+}
+.btn-ghost:hover{border-color:var(--teal-bright);color:var(--teal-bright);box-shadow:none}
+.btn-teal{background:var(--teal);box-shadow:0 10px 30px -10px rgba(21,162,156,.6)}
+.btn-teal:hover{background:var(--teal-bright);box-shadow:0 18px 40px -12px rgba(34,211,200,.7)}
+
+/* ============ NAV ============ */
+header.nav{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(20px,5vw,56px);
+  transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+}
+header.nav.scrolled{
+  background:rgba(10,12,12,.82);backdrop-filter:blur(14px);
+  padding:12px clamp(20px,5vw,56px);
+  box-shadow:0 1px 0 var(--line);
+}
+.brand{font-family:"Base Bloom",sans-serif;font-size:1.5rem;letter-spacing:.05em;color:var(--paper);white-space:nowrap}
+.brand .dot{color:#15a29c}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a.lnk{font-weight:500;font-size:.9rem;color:#cfd3d1;transition:color .25s;position:relative}
+.nav-links a.lnk::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--teal-bright);transition:width .3s var(--ease)}
+.nav-links a.lnk:hover{color:#fff}
+.nav-links a.lnk:hover::after{width:100%}
+.nav .btn{padding:.8em 1.6em;font-size:.78rem}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px}
+.burger span{width:24px;height:2px;background:#fff;transition:.3s var(--ease)}
+
+/* ============ SPOTLIGHT / ATMOSPHERE ============ */
+.spotlight{
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(700px 500px at var(--mx,70%) var(--my,30%),rgba(21,162,156,.22),transparent 60%);
+  transition:background .2s linear;
+}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100svh;display:flex;align-items:center;
+  background:#06100f;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+  z-index:0;transform:scale(1.06);opacity:0;
+  transition:transform 1.8s var(--ease),opacity 1.2s var(--ease);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(4,7,7,.9) 0%,rgba(4,7,7,.66) 34%,rgba(4,7,7,.28) 64%,rgba(4,7,7,.5) 100%),
+    linear-gradient(0deg,rgba(4,7,7,.72),transparent 46%);
+}
+.hero-inner{
+  position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
+  padding:130px clamp(20px,5vw,56px) 96px;
+}
+.hero h1{margin:.4em 0 .55em;text-shadow:0 2px 30px rgba(0,0,0,.55)}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line > span{display:block;transform:translateY(110%);transition:transform .9s var(--ease)}
+.hero-sub{max-width:34ch;color:#e3e6e4;font-size:clamp(1rem,1.4vw,1.18rem);margin-bottom:2.4em;text-shadow:0 1px 16px rgba(0,0,0,.55)}
+.hero-sub b{color:#fff;font-weight:700}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+/* hero loaded state */
+.hero.ready .hero-bg{transform:scale(1);opacity:1}
+.hero.ready h1 .line > span{transform:translateY(0)}
+.hero.ready .eyebrow,.hero.ready .hero-sub,.hero.ready .hero-cta{animation:fadeUp .9s var(--ease) both}
+.hero.ready .hero-sub{animation-delay:.5s}
+.hero.ready .hero-cta{animation-delay:.65s}
+.hero.ready .eyebrow{animation-delay:.15s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* scroll cue */
+.scrollcue{position:absolute;bottom:22px;left:clamp(20px,5vw,72px);z-index:4;display:flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.scrollcue .bar{width:34px;height:1px;background:var(--muted);position:relative;overflow:hidden}
+.scrollcue .bar::after{content:"";position:absolute;inset:0;background:var(--teal-bright);transform:translateX(-100%);animation:cue 1.8s var(--ease) infinite}
+@keyframes cue{0%{transform:translateX(-100%)}55%{transform:translateX(0)}100%{transform:translateX(101%)}}
+
+/* ============ TAGLINE BAND ============ */
+.tagband{background:var(--paper);padding:56px 0;text-align:center}
+.tagband p{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(1.05rem,2.4vw,1.9rem);line-height:1.18;letter-spacing:.01em;color:var(--ink)}
+
+/* ============ MARQUEE ============ */
+.marquee{background:var(--teal);overflow:hidden;padding:14px 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.marquee-track{display:flex;width:max-content;animation:scroll 30s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-group{display:flex;flex:none}
+.marquee span{font-family:"Anton",sans-serif;text-transform:uppercase;color:var(--ink);font-size:1.3rem;letter-spacing:.06em;padding:0 26px;display:inline-flex;align-items:center;gap:26px;white-space:nowrap}
+.marquee span::after{content:"●";color:rgba(10,12,12,.45);font-size:.6rem}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============ VIDEO + PROMISES ============ */
+.promise{background:var(--paper);color:var(--ink)}
+.promise .eyebrow{color:var(--teal)}
+.promise-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,5vw,72px);align-items:center}
+.promise-list{list-style:none;display:flex;flex-direction:column;gap:22px}
+.promise-list li{display:flex;gap:16px;align-items:flex-start;font-size:1.04rem;color:#3a413f}
+.promise-list li .tick{flex:none;width:30px;height:30px;border-radius:50%;background:rgba(21,162,156,.12);border:1px solid rgba(21,162,156,.45);display:grid;place-items:center;color:var(--teal);margin-top:2px}
+.promise-list li b{color:var(--ink);font-weight:700}
+
+.big-statement{padding:clamp(72px,12vh,140px) 0;text-align:center;position:relative;overflow:hidden;background:#000}
+.big-statement::before{content:"";position:absolute;inset:0;background:url("images/ChatGPT%20Image%20Jun%2030%2C%202026%2C%2002_49_37%20PM.png") center/cover no-repeat;z-index:0}
+.big-statement::after{content:"";position:absolute;inset:0;background:rgba(7,10,10,.74);z-index:1}
+.big-statement .wrap{position:relative;z-index:2}
+.big-statement h2{max-width:18ch;margin:0 auto .8em}
+
+/* ============ YT FACADE ============ */
+.yt{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9;cursor:pointer;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.yt img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease),filter .4s}
+.yt:hover img{transform:scale(1.05);filter:brightness(.78)}
+.yt .play{position:absolute;inset:0;display:grid;place-items:center;z-index:2}
+.yt .play svg{width:74px;height:74px;filter:drop-shadow(0 6px 18px rgba(0,0,0,.55));transition:transform .4s var(--ease)}
+.yt:hover .play svg{transform:scale(1.12)}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+
+/* Hides the placeholder elements completely when the video is playing */
+.yt[data-loaded="1"] img, 
+.yt[data-loaded="1"] .play {
+  display:none;
+}
+
+/* ============ TESTIMONIALS 1 ============ */
+.tst{background:var(--paper);color:var(--ink)}
+.tst h2{color:var(--teal)}
+.tst-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:54px}
+.quote{background:#fff;border:1px solid #e4e5e1;border-radius:16px;padding:34px 32px;position:relative;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.quote:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(0,0,0,.28)}
+.quote .mark{font-family:"Anton";font-size:3.4rem;line-height:.5;color:var(--teal);opacity:.25;height:24px;display:block}
+.quote p{font-size:1.02rem;color:#1c2120;margin:8px 0 22px}
+.quote .who{display:flex;align-items:center;gap:14px}
+.quote .who .av{width:54px;height:54px;border-radius:50%;background:var(--teal);flex:none;overflow:hidden}
+.quote .who .av img{width:100%;height:100%;object-fit:cover}
+.quote .who .nm{font-family:"Anton";text-transform:uppercase;font-size:1.05rem;letter-spacing:.02em}
+.quote .who .rl{font-size:.8rem;color:#6b716f;line-height:1.35}
+.quote.span2{grid-column:span 2}
+
+/* ============ PROGRAM DELIVERABLES ============ */
+.deliver{background:var(--panel);position:relative;overflow:hidden}
+.deliver .wrap{position:relative;z-index:2}
+.deliver .sub{color:#15a29c;font-weight:600;letter-spacing:.04em;margin-top:14px}
+.deliver-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px 48px;margin-top:54px}
+.di{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.di .ic{flex:none;width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--teal-deep));display:grid;place-items:center;color:#fff;font-family:"Anton";font-size:.85rem}
+.di h4{font-size:1rem;font-weight:700;color:#fff;margin-bottom:3px}
+.di p{font-size:.9rem;color:var(--muted)}
+
+/* ============ MID CTA / PHILOSOPHY ============ */
+.philo{background:linear-gradient(rgba(6,16,15,.84),rgba(10,21,20,.9)),url("images/ChatGPT%20Image%20Jun%2030%2C%202026%2C%2002_51_15%20PM.png") center/cover no-repeat;text-align:center;position:relative;overflow:hidden}
+.philo .glow{position:absolute;inset:0;background:radial-gradient(600px 400px at 50% 0%,rgba(21,162,156,.22),transparent 65%);z-index:0}
+.philo .wrap{position:relative;z-index:2}
+.philo h2{max-width:24ch;margin:0 auto .6em}
+.philo p{max-width:60ch;margin:0 auto 2.2em;color:#cdd1cf;font-size:1.08rem}
+.philo .fine{font-size:.82rem;color:var(--muted);margin-top:18px}
+.philo .stage-mark{font-family:"Base Bloom";color:#15a29c;font-size:1.1rem;letter-spacing:.1em}
+
+/* ============ CONTRIBUTORS ============ */
+.contrib{background:var(--paper);color:var(--ink)}
+.contrib h2{color:var(--teal)}
+.contrib .intro{max-width:62ch;margin:18px auto 0;color:#4c524f;text-align:center}
+.contrib-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:26px;margin-top:60px}
+.person{text-align:center; display:block; color:inherit; text-decoration:none;}
+.person .ring{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid transparent;transition:transform .45s var(--ease),border-color .45s var(--ease);position:relative}
+.person:hover .ring{transform:translateY(-8px) scale(1.04);border-color:var(--teal)}
+.person .ring img{width:100%;height:100%;object-fit:cover}
+.person .nm{font-family:"Anton";text-transform:uppercase;color:var(--teal);font-size:1.05rem;margin-top:16px;letter-spacing:.02em}
+.person .rl{font-size:.78rem;color:#6b716f;margin-top:4px;line-height:1.4}
+
+/* ============ AUTHORITY BAND + 3 COL ============ */
+.authband{background:linear-gradient(rgba(8,11,11,.86),rgba(8,11,11,.9)),url("images/ChatGPT%20Image%20Jun%2030%2C%202026%2C%2008_22_38%20PM.png") center/cover no-repeat;background-color:var(--ink);text-align:center;padding:clamp(60px,9vh,110px) 0;position:relative;overflow:hidden}
+.authband .glow{position:absolute;inset:0;background:radial-gradient(700px 360px at 50% 120%,rgba(21,162,156,.18),transparent 60%)}
+.authband h2{color:#fff;max-width:24ch;margin:0 auto;position:relative;z-index:2}
+.three{background:var(--ink);border-top:1px solid var(--line)}
+.three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.col h3{color:#fff;margin-bottom:18px}
+.col h3 .idx{display:block;font-family:"Inter";font-size:.78rem;letter-spacing:.24em;color:#15a29c;margin-bottom:12px;font-weight:600}
+.col p{color:var(--muted);font-size:1rem}
+
+/* ============ CREATOR BIO ============ */
+.bio{position:relative;overflow:hidden;background:#06100f;min-height:92vh;display:flex;align-items:center}
+.bio-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.bio::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(4,7,7,.92) 0%,rgba(4,7,7,.68) 40%,rgba(4,7,7,.22) 72%,rgba(4,7,7,.45) 100%),
+    linear-gradient(0deg,rgba(4,7,7,.6),transparent 50%);
+  box-shadow:inset 0 0 160px rgba(0,0,0,.6);}
+.bio-inner{position:relative;z-index:2;width:100%}
+.bio-body{max-width:560px;margin-right:auto;text-shadow:0 2px 24px rgba(0,0,0,.55)}
+.bio-body .eyebrow{margin-bottom:10px}
+.bio-body h2{margin-bottom:24px}
+.creds{list-style:none;display:flex;flex-direction:column;gap:14px}
+.creds li{display:flex;gap:14px;align-items:baseline;color:#e7eae8;font-size:1.02rem}
+.creds li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--teal-bright);transform:translateY(-2px)}
+.creds li b{color:#15a29c;font-weight:600;margin-right:4px}
+
+/* ============ ROSTER VIDEO GRID ============ */
+.roster{background:var(--paper);color:var(--ink)}
+.roster h2{color:var(--teal);text-align:center}
+.roster-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 26px;margin-top:56px}
+.rcard .meta{margin-top:16px}
+.rcard .meta .nm{font-family:"Anton";text-transform:uppercase;color:var(--teal);font-size:1.15rem;letter-spacing:.02em}
+.rcard .meta .rl{font-size:.82rem;color:#5f6562;margin-top:5px;line-height:1.4}
+
+/* ============ FOOTER CTA ============ */
+.finale{background:var(--teal);color:#fff;text-align:center;position:relative;overflow:hidden;padding:clamp(80px,14vh,170px) 0}
+.finale::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 50% -10%,rgba(255,255,255,.16),transparent 60%)}
+.finale .wrap{position:relative;z-index:2}
+.finale h2{font-size:clamp(2.6rem,8vw,7rem);color:#fff;line-height:.9}
+.finale p{font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:40ch;margin:24px auto 40px;font-weight:500}
+.finale .btn{background:var(--ink);box-shadow:0 14px 40px -12px rgba(0,0,0,.5)}
+.finale .btn:hover{background:#000}
+
+footer.foot{background:var(--ink);color:var(--muted);padding:40px 0;border-top:1px solid var(--line);text-align:center}
+footer.foot .fbrand{font-family:"Base Bloom";color:var(--paper);font-size:1.4rem;letter-spacing:.06em;margin-bottom:10px}
+footer.foot .fbrand .dot{color:#15a29c}
+footer.foot small{font-size:.82rem}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin:16px 0;
+  font-size:0.85rem;
+  flex-wrap:wrap;
+}
+.footer-links a{
+  color:var(--muted);
+  transition:color 0.2s;
+}
+.footer-links a:hover{
+  color:var(--teal);
+}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}.reveal.d6{transition-delay:.48s}
+
+/* ============ MODAL ============ */
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal .backdrop{position:absolute;inset:0;background:rgba(5,8,8,.78);backdrop-filter:blur(6px);animation:fade .3s ease}
+.modal .sheet{position:relative;width:min(720px,96vw);height:min(82vh,760px);background:var(--ink);border:1px solid var(--line);border-radius:18px;overflow:hidden;z-index:2;animation:pop .4s var(--ease)}
+.modal .sheet > div[data-tf-live]{width:100%;height:100%}
+.modal .close{position:absolute;top:12px;right:12px;z-index:5;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;color:#fff;transition:background .25s}
+.modal .close:hover{background:var(--cta)}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:scale(.96) translateY(10px)}to{opacity:1;transform:none}}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:980px){
+  .hero{min-height:88svh}
+  .hero-inner{padding:120px clamp(20px,5vw,40px) 80px}
+  .scrollcue{display:none}
+  .promise-grid{grid-template-columns:1fr}
+  .three-grid{grid-template-columns:1fr;gap:36px}
+  .deliver-cols{grid-template-columns:1fr}
+  .contrib-grid{grid-template-columns:repeat(3,1fr)}
+  .roster-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .nav-links{position:fixed;inset:0 0 0 auto;width:78%;max-width:320px;background:var(--panel);
+    flex-direction:column;justify-content:center;gap:30px;padding:40px;
+    transform:translateX(100%);transition:transform .4s var(--ease);box-shadow:-20px 0 60px rgba(0,0,0,.5)}
+  .nav-links.open{transform:none}
+  .burger{display:flex;z-index:95}
+  .burger.x span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.x span:nth-child(2){opacity:0}
+  .burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .tst-grid{grid-template-columns:1fr}
+  .quote.span2{grid-column:auto}
+  .bio{min-height:80vh}
+  .bio::after{background:linear-gradient(0deg,rgba(4,7,7,.94) 0%,rgba(4,7,7,.7) 60%,rgba(4,7,7,.6) 100%)}
+  .bio-body{margin:0;max-width:100%}
+  .contrib-grid{grid-template-columns:repeat(2,1fr)}
+  .roster-grid{grid-template-columns:1fr}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero h1 .line>span{transform:none}
+  .hero-bg{opacity:1;transform:none}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand">STORY TO STAGE<span class="dot">.</span></a>
+  <nav class="nav-links" id="navlinks">
+    <a class="lnk" href="#program">Program</a>
+    <a class="lnk" href="#contributors">Contributors</a>
+    <a class="lnk" href="#creator">Creator</a>
+    <a class="lnk" href="#stories">Stories</a>
+    <button class="btn js-open">Book a Call <span class="arw">→</span></button>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<section class="hero" id="top">
+  <img class="hero-bg" src="images/ChatGPT%20Image%20Jun%2025%2C%202026%2C%2001_54_04%20PM.png" alt="Speaker on stage delivering a talk" />
+  <div class="hero-inner">
+    <span class="eyebrow">Professional Speaking Training</span>
+    <h1 class="display">
+      <span class="line"><span>Sick of being</span></span>
+      <span class="line"><span>the world's</span></span>
+      <span class="line"><span class="teal">best-kept</span></span>
+      <span class="line"><span class="teal">secret?</span></span>
+    </h1>
+    <p class="hero-sub">Unlock your <b>trademark talk</b> and turn the stage into your most powerful marketing tool — building authority, audience and income.</p>
+    <div class="hero-cta">
+      <button class="btn js-open">Book a Free Discovery Call <span class="arw">→</span></button>
+      <a class="btn btn-ghost" href="#program">See the program</a>
+    </div>
+  </div>
+  <div class="scrollcue"><span class="bar"></span> Scroll</div>
+</section>
+
+<section class="tagband">
+  <div class="wrap reveal">
+    <p><span class="teal">Public speaking</span> could be your most powerful marketing tool yet…<br>
+    But there's <span class="teal">a formula</span> to building authority, audience and income. Good thing <span class="teal">we have that for you.</span></p>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mtrack">
+    <div class="marquee-group">
+      <span>Build authority</span><span>Grow your audience</span><span>Get paid to speak</span><span>Own the stage</span>
+    </div>
+  </div>
+</div>
+
+<section class="promise pad" id="program">
+  <div class="wrap promise-grid">
+    <div class="yt reveal" data-id="t3uSf3LbRI0" data-title="Story to Stage Program">
+      <img src="https://i.ytimg.com/vi/t3uSf3LbRI0/hqdefault.jpg" alt="Story to Stage program video" loading="lazy" />
+      <span class="play">
+        <svg viewBox="0 0 68 48"><path fill="#ec2a7a" d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.6 34 .6 34 .6S12.7.6 7.4 1.6C4.5 2.5 2.3 4.8 1.5 7.7.6 13 .6 24 .6 24s0 11 .9 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.4 34 47.4 34 47.4s21.3 0 26.6-1c2.9-.8 5.1-3.1 5.9-6 .9-5.3.9-16.4.9-16.4s0-11-.9-16.3z"/><path fill="#fff" d="M27 34.4l17.8-10.3L27 13.7z"/></svg>
+      </span>
+    </div>
+    <div>
+      <span class="eyebrow reveal">What you'll walk away with</span>
+      <ul class="promise-list" style="margin-top:24px">
+        <li class="reveal d1"><span class="tick">✓</span><span>A structured, tried-and-tested <b>winning framework</b> to package your thoughts into talks, pitches and presentations.</span></li>
+        <li class="reveal d2"><span class="tick">✓</span><span>Become the world authority on <b>your area of expertise</b>, like you always knew you would be.</span></li>
+        <li class="reveal d3"><span class="tick">✓</span><span>Build an engine that <b>increases sales</b> for your business and opens a new revenue stream as a paid speaker.</span></li>
+        <li class="reveal d4"><span class="tick">✓</span><span>Get an unfair advantage by <b>building your audience</b> and tapping into their attention.</span></li>
+        <li class="reveal d5"><span class="tick">✓</span><span>Acquire what other speakers don't have — <b>the roadmap</b> to building your speaking business.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="big-statement">
+  <div class="wrap">
+    <h2 class="display reveal">Become the professional speaker you were meant to be — and <span class="teal">unleash your expertise</span> on the world.</h2>
+    <button class="btn js-open reveal d1">Book a Free Discovery Call <span class="arw">→</span></button>
+  </div>
+</section>
+
+<section class="tst pad">
+  <div class="wrap">
+    <h2 class="display center reveal">What our clients say</h2>
+    <div class="tst-grid">
+      <div class="quote reveal">
+        <span class="mark">"</span>
+        <p>Amazing! An absolute must for anyone who is an aspiring speaker!</p>
+        <div class="who"><span class="av"><img src="images/Philipp_Hartmann-300x300-1-150x150.jpg" alt="Philipp Hartmann" loading="lazy"></span><span><span class="nm">Philipp Hartmann</span><br><span class="rl">Founder. Speaker. Being Dad — Podcast Host. Entrepreneur.</span></span></div>
+      </div>
+      <div class="quote reveal d1">
+        <span class="mark">"</span>
+        <p>In a word — Brilliant. Rich and the team have created a unique, candid look into what it takes to be a successful speaker. Thought-provoking, challenging and rewarding. A master teacher of 'Lead Loud!'</p>
+        <div class="who"><span class="av"><img src="images/1590561528468.jpg" alt="Allan Edmunds" loading="lazy"></span><span><span class="nm">Allan Edmunds</span><br><span class="rl">Airline Pilot. Keynote Speaker. Bringing the flight deck to businesses globally.</span></span></div>
+      </div>
+      <div class="quote reveal d1">
+        <span class="mark">"</span>
+        <p>The Story-to-Stage process helped me fine-tune my Reason for Speaking like nothing I'd done in a decade as a paid speaker. Turning speaking from a passion into a core business has been game-changing.</p>
+        <div class="who"><span class="av"><img src="images/Nic-Haralambous-Speaker-300x300-1-150x150.jpg" alt="Nic Haralambous" loading="lazy"></span><span><span class="nm">Nic Haralambous</span><br><span class="rl">Accomplished entrepreneur. Global speaker.</span></span></div>
+      </div>
+      <div class="quote reveal d2">
+        <span class="mark">"</span>
+        <p>Becoming a professional speaker is just like building a business — so much research, preparation and more. Having someone guiding you, answering questions, and a community of like-minded people is invaluable.</p>
+        <div class="who"><span class="av"><img src="images/Diane-Boorman_-300x300-1-300x300-1-150x150.jpg" alt="Diane Boorman" loading="lazy"></span><span><span class="nm">Diane Boorman</span><br><span class="rl">Business Enabler &amp; Growth Accelerator. Leading professional speaker.</span></span></div>
+      </div>
+      <div class="quote span2 reveal d2">
+        <span class="mark">"</span>
+        <p>I've learned more about myself and my speaking potential in the first three weeks of this program than in my seven years of attempting a speaking career.</p>
+        <div class="who"><span class="av"><img src="images/Kirsty-Bisset-300x300-1-150x150.jpg" alt="Kirsty Bisset" loading="lazy"></span><span><span class="nm">Kirsty Bisset</span><br><span class="rl">Keynote Speaker. 8-time Entrepreneur. Digital Marketer.</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="deliver pad">
+  <div class="spotlight"></div>
+  <div class="wrap">
+    <h2 class="display center reveal teal">What you can expect</h2>
+    <p class="sub center reveal d1">A 12-week program · Foundation Presentation training included</p>
+    <div class="deliver-cols">
+      <div class="di reveal"><span class="ic">01</span><div><h4>Foundation Training</h4><p>A 90-minute live online Foundation Presentation Training session to kick things off.</p></div></div>
+      <div class="di reveal d1"><span class="ic">02</span><div><h4>12-week program</h4><p>With 16 weeks to complete all content and assignments at your pace.</p></div></div>
+      <div class="di reveal"><span class="ic">03</span><div><h4>Community access</h4><p>A Slack channel and online learning platform to engage and access the course.</p></div></div>
+      <div class="di reveal d1"><span class="ic">04</span><div><h4>70+ content videos</h4><p>Extensive core course videos plus supporting bonus content.</p></div></div>
+      <div class="di reveal"><span class="ic">05</span><div><h4>Weekly assignments</h4><p>Apply the methodologies with our coaches in the room to support you.</p></div></div>
+      <div class="di reveal d1"><span class="ic">06</span><div><h4>Live support</h4><p>Two 'office hours' calls every week for the full duration of the program.</p></div></div>
+      <div class="di reveal"><span class="ic">07</span><div><h4>Expert coaching</h4><p>Coaching from Rich and the team as you write your talks and deliver them.</p></div></div>
+      <div class="di reveal d1"><span class="ic">08</span><div><h4>Proven frameworks</h4><p>Tools, techniques and strategies to write genuinely memorable talks.</p></div></div>
+      <div class="di reveal"><span class="ic">09</span><div><h4>Build your asset</h4><p>Develop your own trademark talk across the entire program.</p></div></div>
+      <div class="di reveal d1"><span class="ic">10</span><div><h4>Templates &amp; tools</h4><p>Sales &amp; marketing templates to grow your authority — and get paid.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="philo pad">
+  <div class="glow"></div>
+  <div class="wrap">
+    <p class="stage-mark reveal">— STAGE MARKETING —</p>
+    <h2 class="display reveal d1" style="margin-top:14px">Ready to use public speaking as your most powerful marketing tool?</h2>
+    <p class="reveal d2">No other method gives you the same access to people's attention — and we've never had more stages. We call it Stage Marketing, and it may be the single most effective way to reach more people, build authority, stand out as a thought leader, and sell.</p>
+    <button class="btn js-open reveal d3">Apply — Book a Free Discovery Call <span class="arw">→</span></button>
+    <p class="fine reveal d3">Please note all prices quoted are ex. VAT.</p>
+  </div>
+</section>
+
+<section class="contrib pad" id="contributors">
+  <div class="wrap">
+    <h2 class="display center reveal">Meet a few of our guest contributors</h2>
+    <p class="intro reveal d1">We give you access to their big ideas and key insights to level up your professional speaking career inside the Story to Stage program.</p>
+    <div class="contrib-grid">
+      <a href="https://www.sethgodin.com/" target="_blank" class="person reveal"><div class="ring"><img src="images/Seth-Godin-300x300-1.png" alt="Seth Godin" loading="lazy"></div><div class="nm">Seth Godin</div><div class="rl">Founder of the altMBA. Blogger. Entrepreneur. Author.</div></a>
+      <a href="https://www.linkedin.com/in/howardmann/" target="_blank" class="person reveal d1"><div class="ring"><img src="images/Howard-Mann-STS-300x300-1.png" alt="Howard Mann" loading="lazy"></div><div class="nm">Howard Mann</div><div class="rl">Business Builder. CEO Coach. Author. Speaker.</div></a>
+      <a href="https://www.linkedin.com/in/conor/" target="_blank" class="person reveal d2"><div class="ring"><img src="images/Conor-Neill-STS-300x300-1.png" alt="Conor Neil" loading="lazy"></div><div class="nm">Conor Neil</div><div class="rl">President, Vistage Spain. Senior Lecturer, IESE. Keynote Speaker.</div></a>
+      <a href="https://www.linkedin.com/in/darren-palmer-3a047aab/" target="_blank" class="person reveal d3"><div class="ring"><img src="images/Darren-Palmer-300x300-1.png" alt="Darren Palmer" loading="lazy"></div><div class="nm">Darren Palmer</div><div class="rl">CEO. Author. Speaker.</div></a>
+      <a href="https://www.linkedin.com/in/finnmckenty/" target="_blank" class="person reveal d4"><div class="ring"><img src="images/Finn-McKenty-300x300-1.png" alt="Finn McKenty" loading="lazy"></div><div class="nm">Finn McKenty</div><div class="rl">YouTuber. Social Media + Marketing Consultant.</div></a>
+      <a href="https://www.linkedin.com/in/billschley/" target="_blank" class="person reveal d5"><div class="ring"><img src="images/Bill-Schley-300x300-1.png" alt="Bill Schley" loading="lazy"></div><div class="nm">Bill Schley</div><div class="rl">Co-Founder &amp; President of BrandTeamSix. Author.</div></a>
+    </div>
+  </div>
+</section>
+
+<section class="authband">
+  <div class="glow"></div>
+  <h2 class="display reveal"><span class="teal">Scale your authority</span>, authenticity, audience &amp; affluence with a team that's been doing it for <span class="teal">20+ years</span></h2>
+</section>
+
+<section class="three pad">
+  <div class="wrap three-grid">
+    <div class="col reveal">
+      <h3 class="display"><span class="idx">01 — Proven</span>Tried and tested</h3>
+      <p>These battle-hardened techniques have been perfected over 20+ years. Story to Stage is the natural progression from our leading courses Boredom Slayer and StorySeller.</p>
+    </div>
+    <div class="col reveal d1">
+      <h3 class="display"><span class="idx">02 — Pedigree</span>Presentation powerhouse</h3>
+      <p>We've coached thousands of business leaders on presentation skills since 1997 — so we know a thing or two about being unforgettable, dynamic and activating an audience.</p>
+    </div>
+    <div class="col reveal d2">
+      <h3 class="display"><span class="idx">03 — Authority</span>World authority on speaking</h3>
+      <p>Rich Mulholland is a world authority on public speaking — 3 books, 30+ countries across 6 continents, 5 TEDx talks and a Goalcast viewed 21M times. He's also an official trainer to TED Fellows.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bio pad" id="creator">
+  <img class="bio-bg" src="images/ChatGPT%20Image%20Jun%2025%2C%202026%2C%2001_50_55%20PM.png" alt="Rich Mulholland, program creator" loading="lazy">
+  <div class="bio-inner wrap">
+    <div class="bio-body">
+      <span class="eyebrow reveal">Meet the program creator</span>
+      <h2 class="display reveal d1">Rich Mulholland</h2>
+      <ul class="creds">
+        <li class="reveal d1"><span><b>Founder:</b> Missing Link — Presentation Powerhouse</span></li>
+        <li class="reveal d2"><span><b>Official trainer</b> of TED Fellows</span></li>
+        <li class="reveal d2"><span><b>Goalcast</b> presentation viewed over 21M times</span></li>
+        <li class="reveal d3"><span><b>Author:</b> Boredom Slayer, Legacide &amp; Here Be Dragons</span></li>
+        <li class="reveal d3"><span><b>Built a six-figure</b> speaking business… that's in Dollars, yo!</span></li>
+        <li class="reveal d4"><span><b>Spoken in</b> 46 countries across 6 continents</span></li>
+        <li class="reveal d4"><span><b>Delivered</b> 5 TEDx talks and 1 TED talk</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="roster pad" id="stories">
+  <div class="wrap">
+    <h2 class="display center reveal">What our clients say</h2>
+    <div class="roster-grid">
+      <div class="rcard reveal"><div class="yt" data-id="V93bVImzBbY" data-title="Stephen Shortt"><img src="https://i.ytimg.com/vi/V93bVImzBbY/hqdefault.jpg" alt="Stephen Shortt" loading="lazy"><span class="play"><svg viewBox="0 0 68 48"><path fill="#ec2a7a" d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.6 34 .6 34 .6S12.7.6 7.4 1.6C4.5 2.5 2.3 4.8 1.5 7.7.6 13 .6 24 .6 24s0 11 .9 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.4 34 47.4 34 47.4s21.3 0 26.6-1c2.9-.8 5.1-3.1 5.9-6 .9-5.3.9-16.4.9-16.4s0-11-.9-16.3z"/><path fill="#fff" d="M27 34.4l17.8-10.3L27 13.7z"/></svg></span></div><div class="meta"><div class="nm">Stephen Shortt</div><div class="rl">EO Ireland President. Keynote Speaker. Leadership &amp; Career Coach. Investor.</div></div></div>
+      <div class="rcard reveal d1"><div class="yt" data-id="5yR20pY7dbs" data-title="Spencer Sheinin"><img src="https://i.ytimg.com/vi/5yR20pY7dbs/hqdefault.jpg" alt="Spencer Sheinin" loading="lazy"><span class="play"><svg viewBox="0 0 68 48"><path fill="#ec2a7a" d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.6 34 .6 34 .6S12.7.6 7.4 1.6C4.5 2.5 2.3 4.8 1.5 7.7.6 13 .6 24 .6 24s0 11 .9 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.4 34 47.4 34 47.4s21.3 0 26.6-1c2.9-.8 5.1-3.1 5.9-6 .9-5.3.9-16.4.9-16.4s0-11-.9-16.3z"/><path fill="#fff" d="M27 34.4l17.8-10.3L27 13.7z"/></svg></span></div><div class="meta"><div class="nm">Spencer Sheinin</div><div class="rl">Serial Entrepreneur. Public Speaker. Finance Director, EO Canada.</div></div></div>
+      <div class="rcard reveal d2"><div class="yt" data-id="olsKT8OX0lQ" data-title="Howard Mann"><img src="https://i.ytimg.com/vi/olsKT8OX0lQ/hqdefault.jpg" alt="Howard Mann" loading="lazy"><span class="play"><svg viewBox="0 0 68 48"><path fill="#ec2a7a" d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.6 34 .6 34 .6S12.7.6 7.4 1.6C4.5 2.5 2.3 4.8 1.5 7.7.6 13 .6 24 .6 24s0 11 .9 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.4 34 47.4 34 47.4s21.3 0 26.6-1c2.9-.8 5.1-3.1 5.9-6 .9-5.3.9-16.4.9-16.4s0-11-.9-16.3z"/><path fill="#fff" d="M27 34.4l17.8-10.3L27 13.7z"/></svg></span></div><div class="meta"><div class="nm">Howard Mann</div><div class="rl">Business Builder. CEO Coach. Author. Speaker.</div></div></div>
+      <div class="rcard reveal d3"><div class="yt" data-id="iime0GwAZMU" data-title="Nic Haralambous"><img src="https://i.ytimg.com/vi/iime0GwAZMU/hqdefault.jpg" alt="Nic Haralambous" loading="lazy"><span class="play"><svg viewBox="0 0 68 48"><path fill="#ec2a7a" d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.6 34 .6 34 .6S12.7.6 7.4 1.6C4.5 2.5 2.3 4.8 1.5 7.7.6 13 .6 24 .6 24s0 11 .9 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.4 34 47.4 34 47.4s21.3 0 26.6-1c2.9-.8 5.1-3.1 5.9-6 .9-5.3.9-16.4.9-16.4s0-11-.9-16.3z"/><path fill="#fff" d="M27 34.4l17.8-10.3L27 13.7z"/></svg></span></div><div class="meta"><div class="nm">Nic Haralambous</div><div class="rl">Accomplished Entrepreneur. Global Speaker.</div></div></div>
+      <div class="rcard reveal"><div class="yt" data-id="lzFOpa0VZTI" data-title="Bruce Whitfield"><img src="https://i.ytimg.com/vi/lzFOpa0VZTI/hqdefault.jpg" alt="Bruce Whitfield" loading="lazy"><span class="play"><svg viewBox="0 0 68 48"><path fill="#ec2a7a" d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.6 34 .6 34 .6S12.7.6 7.4 1.6C4.5 2.5 2.3 4.8 1.5 7.7.6 13 .6 24 .6 24s0 11 .9 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.4 34 47.4 34 47.4s21.3 0 26.6-1c2.9-.8 5.1-3.1 5.9-6 .9-5.3.9-16.4.9-16.4s0-11-.9-16.3z"/><path fill="#fff" d="M27 34.4l17.8-10.3L27 13.7z"/></svg></span></div><div class="meta"><div class="nm">Bruce Whitfield</div><div class="rl">Award-Winning Journalist. Author. Professional Speaker.</div></div></div>
+      <div class="rcard reveal d1"><div class="yt" data-id="POO4FaltTCw" data-title="Rapelang Rabana"><img src="https://i.ytimg.com/vi/POO4FaltTCw/hqdefault.jpg" alt="Rapelang Rabana" loading="lazy"><span class="play"><svg viewBox="0 0 68 48"><path fill="#ec2a7a" d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.6 34 .6 34 .6S12.7.6 7.4 1.6C4.5 2.5 2.3 4.8 1.5 7.7.6 13 .6 24 .6 24s0 11 .9 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.4 34 47.4 34 47.4s21.3 0 26.6-1c2.9-.8 5.1-3.1 5.9-6 .9-5.3.9-16.4.9-16.4s0-11-.9-16.3z"/><path fill="#fff" d="M27 34.4l17.8-10.3L27 13.7z"/></svg></span></div><div class="meta"><div class="nm">Rapelang Rabana</div><div class="rl">Tech Entrepreneur. Thought Leader. WEF Young Global Leader.</div></div></div>
+      <div class="rcard reveal d2"><div class="yt" data-id="snS0Ihm0_Hc" data-title="Joey Evans"><img src="https://i.ytimg.com/vi/snS0Ihm0_Hc/hqdefault.jpg" alt="Joey Evans" loading="lazy"><span class="play"><svg viewBox="0 0 68 48"><path fill="#ec2a7a" d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.6 34 .6 34 .6S12.7.6 7.4 1.6C4.5 2.5 2.3 4.8 1.5 7.7.6 13 .6 24 .6 24s0 11 .9 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.4 34 47.4 34 47.4s21.3 0 26.6-1c2.9-.8 5.1-3.1 5.9-6 .9-5.3.9-16.4.9-16.4s0-11-.9-16.3z"/><path fill="#fff" d="M27 34.4l17.8-10.3L27 13.7z"/></svg></span></div><div class="meta"><div class="nm">Joey Evans</div><div class="rl">Best-Selling Author. Global Speaker. Adventurer.</div></div></div>
+      <div class="rcard reveal d3"><div class="yt" data-id="-uKwFkGgzXs" data-title="Matt Bromley"><img src="https://i.ytimg.com/vi/-uKwFkGgzXs/hqdefault.jpg" alt="Matt Bromley" loading="lazy"><span class="play"><svg viewBox="0 0 68 48"><path fill="#ec2a7a" d="M66.5 7.7c-.8-2.9-3-5.2-5.9-6C55.3.6 34 .6 34 .6S12.7.6 7.4 1.6C4.5 2.5 2.3 4.8 1.5 7.7.6 13 .6 24 .6 24s0 11 .9 16.3c.8 2.9 3 5.2 5.9 6C12.7 47.4 34 47.4 34 47.4s21.3 0 26.6-1c2.9-.8 5.1-3.1 5.9-6 .9-5.3.9-16.4.9-16.4s0-11-.9-16.3z"/><path fill="#fff" d="M27 34.4l17.8-10.3L27 13.7z"/></svg></span></div><div class="meta"><div class="nm">Matt Bromley</div><div class="rl">Professional Big-Wave Surfer. Public Speaker.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="finale">
+  <div class="wrap">
+    <h2 class="display reveal">The stage awaits</h2>
+    <p class="reveal d1">Accelerate your journey to becoming a professional public speaker — book a discovery call today.</p>
+    <button class="btn js-open reveal d2">Start your journey <span class="arw">→</span></button>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fbrand">STORY TO STAGE<span class="dot">.</span></div>
+    
+    <div class="footer-links">
+      <a href="https://msnglnk.com/?page_id=5032" target="_blank">Privacy Policy</a>
+      <a href="https://msnglnk.com/?page_id=19" target="_blank">Cookie Policy</a>
+      <a href="https://msnglnk.com/?page_id=4580" target="_blank">PAIA Policy</a>
+      <a href="https://msnglnk.com/?page_id=5025" target="_blank">T's and C's</a>
+    </div>
+
+    <small>&copy; <span id="yr"></span> Story to Stage. All prices quoted are ex. VAT.</small>
+  </div>
+</footer>
+
+<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Book a discovery call">
+  <div class="backdrop" data-close></div>
+  <div class="sheet">
+    <button class="close" data-close aria-label="Close">✕</button>
+    <div data-tf-live="01KWCADPDPQ9K07NRR017RFDZM"></div>
+  </div>
+</div>
+<script src="//embed.typeform.com/next/embed.js"></script>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* year */
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  /* nav scroll state */
+  var nav = document.getElementById("nav");
+  var onScroll = function(){ nav.classList.toggle("scrolled", window.scrollY > 30); };
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
+
+  /* mobile menu */
+  var burger = document.getElementById("burger");
+  var links = document.getElementById("navlinks");
+  burger.addEventListener("click", function(){
+    var open = links.classList.toggle("open");
+    burger.classList.toggle("x", open);
+  });
+  links.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){ links.classList.remove("open"); burger.classList.remove("x"); });
+  });
+
+  /* hero reveal */
+  var hero = document.querySelector(".hero");
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ hero.classList.add("ready"); }); });
+
+  /* spotlight follows pointer (desktop) */
+  if(!reduce && window.matchMedia("(pointer:fine)").matches){
+    document.querySelectorAll(".spotlight").forEach(function(s){
+      var sec = s.parentElement;
+      sec.addEventListener("mousemove", function(e){
+        var r = sec.getBoundingClientRect();
+        s.style.setProperty("--mx", ((e.clientX-r.left)/r.width*100)+"%");
+        s.style.setProperty("--my", ((e.clientY-r.top)/r.height*100)+"%");
+      });
+    });
+  }
+
+  /* scroll reveals */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+  }, {threshold:0.12, rootMargin:"0px 0px -8% 0px"});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+  /* seamless marquee: fill one group past viewport width, then clone it */
+  (function(){
+    var track = document.getElementById("mtrack");
+    if(!track) return;
+    var group = track.querySelector(".marquee-group");
+    if(!group) return;
+    var base = group.innerHTML;
+    var guard = 0;
+    while(group.scrollWidth < window.innerWidth + 200 && guard < 12){ group.innerHTML += base; guard++; }
+    track.appendChild(group.cloneNode(true));
+  })();
+
+  /* YouTube facade */
+  document.querySelectorAll(".yt").forEach(function(box){
+    box.addEventListener("click", function(){
+      if(box.dataset.loaded) return;
+      box.dataset.loaded = "1";
+      var id = box.getAttribute("data-id");
+      var t = box.getAttribute("data-title") || "Video";
+      var f = document.createElement("iframe");
+      f.src = "https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0";
+      f.title = t;
+      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      f.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
+      f.allowFullscreen = true;
+      box.appendChild(f);
+    });
+  });
+
+  /* Typeform modal */
+  var modal = document.getElementById("modal");
+  var openForm = function(){
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+  };
+  var closeForm = function(){
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+  };
+  document.querySelectorAll(".js-open").forEach(function(b){ b.addEventListener("click", openForm); });
+  modal.querySelectorAll("[data-close]").forEach(function(b){ b.addEventListener("click", closeForm); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeForm(); });
+})();
+</script>
+</body>
+</html>
